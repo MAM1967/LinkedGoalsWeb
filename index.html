@@ -15,15 +15,20 @@
                 <li><a href="#">How It Works</a></li>
                 <li><a href="#">Pricing</a></li>
             </ul>
-            <button class="cta-button">Login with LinkedIn</button>
+            <button class="cta-button desktop-cta login-button">Login with LinkedIn</button>
         </nav>
+        <button class="hamburger-menu" aria-label="Open navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
     <section class="hero">
         <h1>Turn Ambition Into Action</h1>
         <p class="subheadline">Set career-aligned goals, track your progress, and build visible momentum—powered by your LinkedIn network.</p>
         <div class="hero-cta-buttons">
-            <button class="cta-button">Login with LinkedIn</button>
-            <button class="secondary-button">Watch Demo</button>
+            <button class="cta-button login-button">Login with LinkedIn</button>
+            <button class="secondary-button" id="watch-demo-btn">Watch Demo</button>
         </div>
         <div class="hero-visual">
             <!-- Dashboard Mockup + LinkedIn Badge Placeholder -->
@@ -127,10 +132,23 @@
     </section>
     <section class="cta-footer">
         <h2>Start turning your goals into career wins.</h2>
-        <button class="cta-button">Login with LinkedIn</button>
-        <p class="contact-cta">Have questions? <a href="#contact">Contact Us</a></p>
+        <button class="cta-button login-button">Login with LinkedIn</button>
+        <p class="contact-cta">Have questions? <a href="#contact" class="contact-link">Contact Us</a></p>
     </section>
-    <h1>Welcome to LinkedGoals</h1>
+    <footer class="legal-footer">
+        <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a> | <a href="#" class="contact-link">Contact</a></p>
+        <p>&copy; 2023 LinkedGoals. All rights reserved.</p>
+    </footer>
     <script src="js/script.js"></script>
+
+    <div id="demo-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>LinkedGoals Demo</h2>
+            <p>Demo video or content will be here.</p>
+            <!-- Optional: Add an iframe for a video later -->
+            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/your_video_id" frameborder="0" allowfullscreen></iframe> -->
+        </div>
+    </div>
 </body>
 </html>
