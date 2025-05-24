@@ -1,154 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LinkedGoals</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <meta
+      name="description"
+      content="Track your career goals and make progress visible—LinkedGoals helps high-performers turn ambition into action."
+    />
+    <meta property="og:title" content="LinkedGoals" />
+    <meta
+      property="og:description"
+      content="Turn ambition into action with SMART goals powered by your LinkedIn identity."
+    />
+    <meta
+      property="og:image"
+      content="https://linkedgoals.app/assets/linkedgoals.jpg"
+    />
+    <meta property="og:url" content="https://linkedgoals.app" />
+    <link rel="icon" href="assets/linkedgoals.jpeg" type="image/jpeg" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <header>
-        <div class="logo">LinkedGoals</div>
-        <nav>
-            <ul>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">How It Works</a></li>
-                <li><a href="#">Pricing</a></li>
-            </ul>
-            <button class="cta-button desktop-cta login-button">Login with LinkedIn</button>
-        </nav>
-        <button class="hamburger-menu" aria-label="Open navigation menu">
-            <span></span>
-            <span></span>
-            <span></span>
+      <div class="logo">
+        <img
+          src="assets/linkedgoals.jpg"
+          alt="LinkedGoals Logo"
+          style="height: 40px"
+        />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Pricing</a></li>
+        </ul>
+        <button class="cta-button desktop-cta login-button">
+          Login with LinkedIn
         </button>
+      </nav>
+      <button class="hamburger-menu" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </header>
     <section class="hero">
-        <h1>Turn Ambition Into Action</h1>
-        <p class="subheadline">Set career-aligned goals, track your progress, and build visible momentum—powered by your LinkedIn network.</p>
-        <div class="hero-cta-buttons">
-            <button class="cta-button login-button">Login with LinkedIn</button>
-            <button class="secondary-button" id="watch-demo-btn">Watch Demo</button>
-        </div>
-        <div class="hero-visual">
-            <!-- Dashboard Mockup + LinkedIn Badge Placeholder -->
-            Dashboard Mockup + LinkedIn Badge Placeholder
-        </div>
+      <h1>Turn Ambition Into Action</h1>
+      <p class="subheadline">
+        Set career-aligned goals, track your progress, and build visible
+        momentum—powered by your LinkedIn network.
+      </p>
+      <div class="hero-cta-buttons">
+        <a
+          href="https://app.linkedgoals.app/login"
+          class="cta-button login-button"
+          >Login with LinkedIn</a
+        >
+        <button class="secondary-button" id="watch-demo-btn">Watch Demo</button>
+      </div>
+      <div class="hero-visual">
+        <img
+          src="assets/user_mockup.jpg"
+          alt="Professional woman using LinkedGoals"
+          style="max-width: 100%; height: auto"
+        />
+      </div>
     </section>
     <section class="problem-solution">
-        <h2>Generic productivity tools don’t map to long-term growth.</h2>
-        <div class="columns-container">
-            <div class="column problem-column">
-                <h3>The Problem</h3>
-                <ul>
-                    <li>Scattered notes and to-do apps</li>
-                    <li>No clear link to professional outcomes</li>
-                    <li>Hard to stay consistent</li>
-                </ul>
-            </div>
-            <div class="column solution-column">
-                <h3>Our Solution</h3>
-                <ul>
-                    <li>SMART goals tied to your career</li>
-                    <li>LinkedIn integration for context</li>
-                    <li>Simple, trackable progress</li>
-                </ul>
-            </div>
+      <h2>Generic productivity tools don’t map to long-term growth.</h2>
+      <div class="columns-container">
+        <div class="column problem-column">
+          <h3>The Problem</h3>
+          <ul>
+            <li>Scattered notes and to-do apps</li>
+            <li>No clear link to professional outcomes</li>
+            <li>Hard to stay consistent</li>
+          </ul>
         </div>
+        <div class="column solution-column">
+          <h3>Our Solution</h3>
+          <ul>
+            <li>SMART goals tied to your career</li>
+            <li>LinkedIn integration for context</li>
+            <li>Simple, trackable progress</li>
+          </ul>
+        </div>
+      </div>
     </section>
     <section class="how-it-works">
-        <h2>How LinkedGoals Works</h2>
-        <div class="steps-container">
-            <div class="step-item">
-                <div class="step-icon">Icon: Login</div>
-                <h3>1. Login with LinkedIn</h3>
-                <p>Connect your LinkedIn account to get started.</p>
-            </div>
-            <div class="step-item">
-                <div class="step-icon">Icon: Goal Setting</div>
-                <h3>2. Set your first SMART goal</h3>
-                <p>Use our guided prompts to define clear, actionable goals.</p>
-            </div>
-            <div class="step-item">
-                <div class="step-icon">Icon: Track Progress</div>
-                <h3>3. Track progress in your dashboard</h3>
-                <p>Monitor your achievements, streaks, and milestones.</p>
-            </div>
-            <div class="step-item">
-                <div class="step-icon">Icon: Share</div>
-                <h3>4. Share wins and get feedback</h3>
-                <p>Share your success on LinkedIn or with mentors.</p>
-            </div>
+      <h2>How LinkedGoals Works</h2>
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-icon"><i class="fas fa-sign-in-alt fa-2x"></i></div>
+          <h3>1. Login with LinkedIn</h3>
+          <p>Connect your LinkedIn account to get started.</p>
         </div>
+        <div class="step-item">
+          <div class="step-icon"><i class="fas fa-bullseye fa-2x"></i></div>
+          <h3>2. Set your first SMART goal</h3>
+          <p>Use our guided prompts to define clear, actionable goals.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-icon"><i class="fas fa-chart-line fa-2x"></i></div>
+          <h3>3. Track progress in your dashboard</h3>
+          <p>Monitor your achievements, streaks, and milestones.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-icon"><i class="fas fa-share-alt fa-2x"></i></div>
+          <h3>4. Share wins and get feedback</h3>
+          <p>Share your success on LinkedIn or with mentors.</p>
+        </div>
+      </div>
     </section>
     <section class="feature-highlights">
-        <h2>Feature Highlights</h2>
-        <div class="features-container">
-            <div class="feature-item">
-                <div class="feature-icon">Icon: Goal</div>
-                <h3>SMART Goal Builder</h3>
-                <p>Guided prompts make setting real goals fast.</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon">Icon: Dashboard</div>
-                <h3>Progress Dashboard</h3>
-                <p>Visualize streaks, milestones, and completion rates.</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon">Icon: Social</div>
-                <h3>Social Accountability</h3>
-                <p>Share updates, invite supporters, build circles.</p>
-            </div>
+      <h2>Feature Highlights</h2>
+      <div class="features-container">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-check-circle fa-2x"></i>
+          </div>
+          <h3>SMART Goal Builder</h3>
+          <p>Guided prompts make setting real goals fast.</p>
         </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-tachometer-alt fa-2x"></i>
+          </div>
+          <h3>Progress Dashboard</h3>
+          <p>Visualize streaks, milestones, and completion rates.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-users fa-2x"></i></div>
+          <h3>Social Accountability</h3>
+          <p>Share updates, invite supporters, build circles.</p>
+        </div>
+      </div>
     </section>
     <section class="social-proof">
-        <h2>What Early Users Are Saying</h2>
-        <div class="testimonials-placeholder">
-            <p>Testimonials and user logos will be featured here soon!</p>
-        </div>
+      <h2>What Early Users Are Saying</h2>
+      <div class="testimonials-placeholder">
+        <img
+          src="assets/testimonials-placeholder.png"
+          alt="User Testimonials"
+          style="max-width: 100%; height: auto"
+        />
+      </div>
     </section>
     <section class="pricing-preview">
-        <h2>Simple Pricing</h2>
-        <div class="pricing-tiers-container">
-            <div class="pricing-tier free-tier">
-                <h3>Free Tier</h3>
-                <ul>
-                    <li>Set and track 3 goals</li>
-                    <li>Full dashboard access</li>
-                    <li>Limited sharing features</li>
-                </ul>
-            </div>
-            <div class="pricing-tier premium-tier">
-                <h3>Premium</h3>
-                <p class="coming-soon">(Coming Soon)</p>
-                <ul>
-                    <li>Unlimited goals</li>
-                    <li>Advanced analytics</li>
-                    <li>Custom categories</li>
-                    <li>Priority support</li>
-                </ul>
-            </div>
+      <h2>Simple Pricing</h2>
+      <div class="pricing-tiers-container">
+        <div class="pricing-tier free-tier">
+          <h3>Free Tier</h3>
+          <ul>
+            <li>Set and track 3 goals</li>
+            <li>Full dashboard access</li>
+            <li>Limited sharing features</li>
+          </ul>
         </div>
+        <div class="pricing-tier premium-tier">
+          <h3>Premium</h3>
+          <p class="coming-soon">(Coming Soon)</p>
+          <ul>
+            <li>Unlimited goals</li>
+            <li>Advanced analytics</li>
+            <li>Custom categories</li>
+            <li>Priority support</li>
+          </ul>
+        </div>
+      </div>
     </section>
     <section class="cta-footer">
-        <h2>Start turning your goals into career wins.</h2>
-        <button class="cta-button login-button">Login with LinkedIn</button>
-        <p class="contact-cta">Have questions? <a href="#contact" class="contact-link">Contact Us</a></p>
+      <h2>Start turning your goals into career wins.</h2>
+      <a
+        href="https://app.linkedgoals.app/login"
+        class="cta-button login-button"
+        >Login with LinkedIn</a
+      >
+      <p class="contact-cta">
+        Have questions? <a href="#contact" class="contact-link">Contact Us</a>
+      </p>
     </section>
     <footer class="legal-footer">
-        <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a> | <a href="#" class="contact-link">Contact</a></p>
-        <p>&copy; 2023 LinkedGoals. All rights reserved.</p>
+      <p>
+        <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a> |
+        <a href="#" class="contact-link">Contact</a>
+      </p>
+      <p>&copy; 2023 LinkedGoals. All rights reserved.</p>
     </footer>
     <script src="js/script.js"></script>
 
-    <div id="demo-modal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>LinkedGoals Demo</h2>
-            <p>Demo video or content will be here.</p>
-            <!-- Optional: Add an iframe for a video later -->
-            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/your_video_id" frameborder="0" allowfullscreen></iframe> -->
-        </div>
+    <div id="demo-modal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>LinkedGoals Demo</h2>
+        <p>Demo video or content will be here.</p>
+        <!-- Optional: Add an iframe for a video later -->
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/your_video_id" frameborder="0" allowfullscreen></iframe> -->
+      </div>
     </div>
-</body>
+    <style>
+      @media (max-width: 768px) {
+        nav ul {
+          display: none;
+        }
+        .hamburger-menu {
+          display: block;
+        }
+        .columns-container,
+        .features-container,
+        .steps-container {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </body>
 </html>

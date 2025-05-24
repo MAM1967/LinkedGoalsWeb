@@ -467,3 +467,13 @@ nav a {
     line-height: 1.5;
     color: #555;
 }
+
+
+/* Improve Font Awesome icon visibility and layout */
+.step-icon i,
+.feature-icon i {
+    color: #0077B5; /* LinkedIn blue */
+    font-size: 2.5rem;
+    display: inline-block;
+    margin-bottom: 10px;
+}
