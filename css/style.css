@@ -1,479 +1,669 @@
-/* This is the beginning of the style.css file */
+/* Basic Reset and Body Styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container utility class */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1rem;
+  display: block;
+}
 
 body {
-    font-family: sans-serif;
-    margin: 0; /* Also good to reset default margin */
-    padding: 0; /* Also good to reset default padding */
+  font-family: "Segoe UI", sans-serif;
+  color: #222;
+  background-color: #fff;
 }
 
-header {
-    position: sticky;
-    top: 0;
-    background-color: #fff;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+section {
+  padding: 4rem 2rem;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
+section + section {
+  margin-top: 4rem;
 }
 
-nav { /* Ensure nav itself can flex items for mobile */
-    display: flex;
-    align-items: center;
+h1,
+h2,
+h3 {
+  letter-spacing: 0.5px;
+  color: #111;
+  font-family: "Segoe UI", sans-serif;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center; /* Align items vertically */
+p {
+  max-width: 640px;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #333;
 }
 
-nav li {
-    margin-left: 20px;
+.hero {
+  background-color: #f9f9f9; /* Subtle gray background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-nav a {
-    text-decoration: none;
-    color: #333;
+.hero-heading {
+  font-size: 2.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
-.hamburger-menu {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    margin-left: 15px; /* Space from nav items if they were visible */
+.hero-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 2rem;
 }
 
-.hamburger-menu span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 5px 0;
-    transition: 0.3s;
+.hero-copy {
+  flex: 1 1 50%;
+  max-width: 550px;
+}
+
+.hero-copy h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hero-copy p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.hero-icons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-icons div {
+  text-align: center;
+  flex: 1;
+}
+
+.hero-icons i {
+  font-size: 2rem;
+  color: #0a66c2;
+}
+
+.hero-visual {
+  flex: 1 1 40%;
+  max-width: 500px;
+}
+
+.hero-visual img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+  display: block;
 }
 
 .cta-button {
-    background-color: #0077B5;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #0a66c2;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background-color: #004182;
+}
+
+/* Styles for the combined Problem/Solution and How It Works section */
+.problem-solution-how-it-works {
+  /* No background color here, will be set on child divs */
+  color: #0a66c2;
+  padding-top: 2rem; /* Add padding to the top of the outer section */
+  padding-bottom: 2rem; /* Add padding to the bottom of the outer section */
+  /* Remove side padding if children handle it or if full-width effect is desired for backgrounds */
+  /* padding-left: 0; */
+  /* padding-right: 0; */
+}
+
+.problem-solution-how-it-works .section-header,
+.problem-solution-how-it-works h3,
+.problem-solution-how-it-works p,
+.problem-solution-how-it-works li {
+  color: #0a66c2; /* LinkedIn Blue */
+}
+
+.problem-solution-content {
+  margin-bottom: 3rem; /* Space between problem/solution and how-it-works */
+  background-color: #fff; /* White background for this part */
+  padding: 2rem; /* Add some padding */
+  border-radius: 8px; /* Optional: adds rounded corners */
+  /* margin-top: -2rem; /* Removed this, let the parent section padding handle top spacing */
+}
+
+.problem-solution-content .section-header {
+  text-align: center; /* Center this specific section header */
+  margin-bottom: 2.5rem; /* Increased margin-bottom for more space */
+}
+
+.problem-solution-how-it-works .columns-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  /* margin-bottom: 3rem; /* Removed as margin is now on problem-solution-content */
+}
+
+.problem-solution-how-it-works .column {
+  flex: 1 1 45%;
+  max-width: 45%;
+}
+
+.problem-solution-how-it-works .column h3 {
+  font-size: 1.5rem; /* Increased font size */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.problem-solution-how-it-works .column ul {
+  padding-left: 1.25rem;
+  list-style-type: disc;
+}
+
+.problem-solution-how-it-works .column ul li {
+  font-size: 1.2rem; /* Increased font size for list items */
+  margin-bottom: 0.5rem;
+}
+
+/* .problem-solution-how-it-works .column.solution {
+  color: #0a66c2; /* Already handled by the parent color setting * /
+} */
+
+.how-it-works-content {
+  background-color: #f9f9f9; /* Light gray background for this part */
+  padding: 2rem; /* Add some padding */
+  border-radius: 8px; /* Optional: adds rounded corners */
+  /* margin-top: 2rem; /* Removed this, let the parent section padding and content above dictate spacing */
+}
+
+.how-it-works-content .how-it-works-title {
+  text-align: center;
+  margin-bottom: 2rem; /* Space below the title */
+}
+
+.how-it-works-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1.5rem;
+}
+
+.how-it-works-steps .step-item {
+  flex: 0 1 calc(50% - 1rem); /* Two items per row with gap */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.how-it-works-steps .step-icon {
+  color: #0a66c2;
+  margin-bottom: 0.75rem;
+}
+
+.how-it-works-steps .step-icon i {
+  font-size: 2rem; /* Slightly larger icons */
+}
+
+.how-it-works-steps h3 {
+  font-size: 1.25rem; /* Increased font size */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.how-it-works-steps p {
+  font-size: 1rem;
+}
+
+/* Remove old problem-solution and how-it-works styles if they exist */
+.problem-solution .columns-container, /* targeting old class */
+.how-it-works .two-column-container /* targeting old class */ {
+  display: none; /* Hide old structures if they were missed in HTML cleanup */
 }
 
 @media (max-width: 768px) {
-    header nav ul {
-        display: none; /* Hide desktop nav links by default */
-        flex-direction: column;
-        position: absolute;
-        top: 60px; /* Adjust based on header height */
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        padding: 10px 0; /* Add some padding */
-    }
+  section {
+    padding: 2rem 1rem;
+  }
 
-    header nav ul.nav-open {
-        display: flex; /* Show mobile nav when .nav-open is present */
-    }
-
-    header nav li {
-        margin-left: 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    header nav li a {
-        padding: 10px 0;
-        display: block; /* Make links take full width */
-        width: 100%;
-    }
-    
-    .hamburger-menu {
-        display: block; /* Show hamburger icon */
-    }
-
-    .desktop-cta { /* Hide the desktop CTA button in the nav */
-        display: none;
-    }
-}
-
-/* Hero Section Styles */
-.hero {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: #f4f4f4;
-}
-
-.hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.hero .subheadline {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    color: #555;
-}
-
-.hero .hero-cta-buttons {
-    margin-bottom: 30px;
-}
-
-.hero .hero-cta-buttons button {
-    margin: 0 10px;
-}
-
-.hero .secondary-button {
-    background-color: transparent;
-    color: #0077B5;
-    border: 1px solid #0077B5;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.hero .hero-visual {
-    width: 60%;
-    max-width: 500px;
-    height: 300px;
-    background-color: #ccc;
-    margin: 0 auto;
-    border: 1px solid #bbb;
-    display: flex;
+  .hero-layout,
+  .features-container,
+  .columns-container,
+  .steps-container,
+  .pricing-tiers-container {
+    flex-direction: column;
+    gap: 2rem;
     align-items: center;
-    justify-content: center;
-    color: #777;
+  }
+
+  .hero-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-copy,
+  .hero-visual {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .hero-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .problem-solution-how-it-works .columns-container {
+    flex-direction: column;
+  }
+
+  .problem-solution-how-it-works .column {
+    max-width: 100%;
+  }
+
+  .how-it-works-steps .step-item {
+    flex: 1 1 100%; /* Single column on mobile */
+    max-width: 350px;
+  }
+
+  .how-it-works-steps {
+    flex-direction: column; /* Stack steps vertically on mobile */
+    align-items: center;
+  }
 }
 
-/* Problem-Solution Section Styles */
-.problem-solution {
-    padding: 40px 20px;
-    text-align: center;
+.two-column-section .two-column-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-.problem-solution h2 {
-    font-size: 1.8em;
-    margin-bottom: 30px;
+.two-column-section .two-column {
+  flex: 1 1 45%;
+  max-width: 45%;
 }
 
-.problem-solution .columns-container {
+@media (max-width: 768px) {
+  .two-column-section .two-column-container {
+    flex-direction: column;
+  }
+
+  .two-column-section .two-column {
+    max-width: 100%;
+  }
+}
+
+/* Mobile CTA button - ensure it's appropriately styled and possibly hidden on desktop */
+.mobile-cta {
+  display: none; /* Hidden by default, shown in media query */
+  margin-top: 1.5rem;
+  width: 100%; /* Make it full width on mobile */
+  text-align: center;
+}
+
+.desktop-cta {
+  display: inline-block; /* Default display for desktop */
+}
+
+@media (max-width: 768px) {
+  .desktop-cta {
+    display: none; /* Hide desktop CTA on mobile */
+  }
+  .mobile-cta {
+    display: block; /* Show mobile CTA */
+  }
+
+  /* Adjust hero layout for mobile CTA */
+  .hero-copy {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    gap: 20px;
-    text-align: left;
-    flex-wrap: wrap; /* Allow wrapping */
+    flex-direction: column;
+    align-items: center; /* Center content including CTA */
+  }
+  .hero-copy p {
+    text-align: center; /* Center paragraph text on mobile */
+  }
+  .hero-icons {
+    width: 100%; /* Ensure icons container takes full width */
+  }
+
+  /* Adjust pricing tiers for mobile */
+  .pricing-tiers-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pricing-tier {
+    flex: 1 1 100%; /* Full width on mobile */
+    max-width: 100%; /* Ensure it doesn't exceed container */
+  }
 }
 
-.problem-solution .column {
-    flex: 1 1 100%; /* Allow columns to take full width on smaller screens */
-    max-width: 45%; /* Keep max-width for larger screens */
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    min-width: 280px; /* Ensure readability on small screens before wrapping */
+/* Pricing Preview Section */
+.pricing-preview {
+  background-color: #fff; /* Ensure white background for the overall section */
+  color: #0a66c2; /* Default text color for the section, can be overridden */
+  padding-top: 3rem; /* More space at the top */
+  padding-bottom: 3rem; /* More space at the bottom */
 }
 
-@media (min-width: 769px) { /* Apply two-column layout only on larger screens */
-    .problem-solution .column {
-        flex: 1; /* Distribute space equally */
-    }
+.pricing-preview .section-header {
+  color: #0077b5; /* LinkedIn Blue for the main section header */
+  text-align: center;
+  margin-bottom: 2.5rem; /* Increased space below header */
+  font-size: 2.25rem; /* Larger header font */
 }
 
-.problem-solution .column h3 {
-    font-size: 1.3em;
-    margin-bottom: 15px;
-    color: #333;
+.pricing-tiers-container {
+  display: flex;
+  justify-content: center; /* Center tiers if only two, or space-around if more */
+  flex-wrap: wrap;
+  gap: 2rem; /* Space between tier cards */
+  align-items: stretch; /* Make cards of equal height if content varies */
 }
 
-.problem-solution .column ul {
-    list-style: disc;
-    margin-left: 20px;
-    padding-left: 0;
+.pricing-tier {
+  flex: 1 1 320px;
+  max-width: 380px;
+  background: linear-gradient(
+    180deg,
+    #e0f2f7 0%,
+    #ffffff 100%
+  ); /* Light blue to white gradient */
+  color: #333; /* Darker text for readability on light gradient */
+  padding: 2.5rem 2rem;
+  border: 1px solid #cce0ff; /* Softer border color */
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Softer, more modern shadow */
+  text-align: left;
+  display: flex;
+  flex-direction: column; /* Align content vertically */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.problem-solution .column li {
-    margin-bottom: 10px;
-    line-height: 1.6;
-    color: #555;
+.pricing-tier:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* How It Works Section Styles */
-.how-it-works {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #fff; /* White background */
+.pricing-tier h3 {
+  font-size: 1.75rem;
+  color: #0077b5; /* LinkedIn Blue for tier titles */
+  margin-bottom: 1.5rem; /* More space below title */
+  display: flex;
+  align-items: center;
 }
 
-.how-it-works h2 {
-    font-size: 1.8em;
-    margin-bottom: 40px;
+.tier-badge {
+  margin-right: 0.75rem;
+  font-size: 1.5rem; /* Adjust badge size */
+  color: #0077b5; /* Default badge color */
 }
 
-.how-it-works .steps-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    gap: 20px;
-    flex-wrap: wrap;
+.tier-badge.premium-badge {
+  color: #f2c94c; /* Gold color for premium badge */
 }
 
-.how-it-works .step-item {
-    flex: 1;
-    max-width: 22%;
-    min-width: 200px;
-    padding: 20px;
-    text-align: center;
+.pricing-tier ul {
+  list-style-type: none; /* Remove default bullets */
+  padding-left: 0;
+  margin-bottom: 2rem; /* Space before button */
+  flex-grow: 1; /* Allow ul to take available space, pushing button down */
 }
 
-.how-it-works .step-icon {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    color: #0077B5; /* LinkedIn blue for icons */
+.pricing-tier ul li {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.75rem; /* Space between list items */
+  display: flex;
+  align-items: center;
 }
 
-.how-it-works .step-item h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #333;
+.feature-icon {
+  color: #27ae60; /* Green checkmark */
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
 }
 
-.how-it-works .step-item p {
-    font-size: 0.9em;
-    line-height: 1.5;
-    color: #555;
+.select-plan-button {
+  background-color: #0077b5; /* LinkedIn Blue */
+  color: white;
+  padding: 0.85rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: block; /* Make button take full width of its container */
+  text-align: center;
+  margin-top: auto; /* Push to bottom if flex container */
+  transition: background-color 0.3s ease;
 }
 
-/* Modal Styles */
-.modal {
-    display: none; /* Hidden by default, JS will control visibility */
-    position: fixed;
-    z-index: 1001;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
+.select-plan-button:hover {
+  background-color: #005d8c; /* Darker LinkedIn Blue on hover */
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 8px;
-    position: relative;
+.select-plan-button.disabled-button,
+.select-plan-button.coming-soon-button {
+  background-color: #a0a0a0; /* Gray for disabled/coming soon state */
+  cursor: default; /* Default cursor as it's not clickable or leads to a notification signup */
+  /* pointer-events: none; /* Optionally make it completely non-interactive */
 }
 
-.close-button {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+.select-plan-button.coming-soon-button:hover {
+  background-color: #8c8c8c; /* Slightly darker gray on hover */
 }
 
-.close-button:hover,
-.close-button:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.premium-tier-header {
+  position: relative; /* Kept in case needed for other header elements */
 }
 
-/* Feature Highlights Section Styles */
-.feature-highlights {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #f4f4f4; /* Alternating background color */
+.coming-soon-badge {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #777;
+  background-color: #eee;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.75rem;
+  display: inline-block; /* To allow padding and background */
+  vertical-align: middle; /* Align with the text */
 }
 
-/* Feature Highlights Section Styles */
-.feature-highlights {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #f4f4f4; /* Alternating background color */
+.share-plan-link {
+  display: block;
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #0077b5;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
-.feature-highlights h2 {
-    font-size: 1.8em;
-    margin-bottom: 40px;
+.share-plan-link i {
+  margin-right: 0.5rem;
 }
 
-.feature-highlights .features-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    gap: 20px;
-    flex-wrap: wrap; /* Added for responsiveness */
+.share-plan-link:hover {
+  text-decoration: underline;
+  color: #005d8c;
 }
 
-.feature-highlights .feature-item {
-    flex: 1;
-    max-width: 30%;
-    min-width: 280px;
-    padding: 20px;
-    text-align: center; /* Content within item is centered */
-    background-color: #fff; /* Giving items a white background */
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+/* Remove old .coming-soon p styling if it conflicts */
+.pricing-tier p.coming-soon {
+  /* Targeting the old p tag */
+  display: none; /* Hide the old simple text (Coming Soon) */
 }
 
-.feature-highlights .feature-icon {
-    font-size: 2em;
-    margin-bottom: 15px;
-    color: #0077B5; /* LinkedIn blue for icons */
+/* Responsive adjustments for pricing tiers */
+@media (max-width: 768px) {
+  .pricing-tiers-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .pricing-tier {
+    flex-basis: auto; /* Allow cards to size based on content on mobile */
+    width: 90%; /* Or a specific max-width like 350px */
+    max-width: 380px;
+    margin-bottom: 2rem;
+  }
+  .pricing-tier:last-child {
+    margin-bottom: 0;
+  }
 }
 
-.feature-highlights .feature-item h3 {
-    font-size: 1.3em;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.feature-highlights .feature-item p {
-    font-size: 1em;
-    line-height: 1.6;
-    color: #555;
-}
-
-/* CTA Footer Section Styles */
+/* CTA Footer Section */
 .cta-footer {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #0077B5; /* LinkedIn blue */
-    color: #fff;
+  background-color: #0a66c2; /* Primary CTA color for background */
+  color: #fff; /* White text for contrast */
 }
 
-.cta-footer h2 {
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    color: #fff;
+.cta-footer .section-header,
+.cta-footer p {
+  color: #fff; /* Ensure text within this section is white */
 }
 
 .cta-footer .cta-button {
-    background-color: #fff;
-    color: #0077B5;
-    padding: 12px 25px;
-    font-size: 1.1em;
-    margin-bottom: 20px;
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
+  background-color: #fff; /* White button background */
+  color: #0a66c2; /* Primary text color for button */
+  border: 2px solid #0a66c2;
 }
 
-.cta-footer .contact-cta {
-    font-size: 1em;
+.cta-footer .cta-button:hover {
+  background-color: #e9ecef; /* Light hover for white button */
+  color: #004182;
 }
 
-.cta-footer .contact-cta a {
-    color: #fff;
-    text-decoration: underline;
-    font-weight: bold;
+.cta-footer .contact-link {
+  color: #fff; /* White link color */
+  text-decoration: underline;
 }
 
-/* Legal Footer Section Styles */
-.legal-footer {
-/* Social Proof Section Styles */
-.social-proof {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #f4f4f4; /* Alternating background */
+.cta-footer .contact-link:hover {
+  color: #e0e0e0; /* Lighter white on hover */
 }
 
-.social-proof h2 {
-    font-size: 1.8em;
-    margin-bottom: 30px;
+/* General Section Styling */
+section.alternate-bg {
+  background-color: #f9f9f9;
 }
 
-.social-proof .testimonials-placeholder {
-    border: 2px dashed #ccc;
-    padding: 30px;
-    min-height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #777;
-    font-style: italic;
+/* Page Navigation Bar (after hero) */
+.page-nav-bar {
+  background-color: #e9ecef; /* A slightly different gray or a contrasting color */
+  padding: 1rem 0;
+  text-align: center;
+  margin-bottom: 2rem; /* Space before the next section */
 }
 
-/* Pricing Preview Section Styles */
-.pricing-preview {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #fff;
+.page-nav-bar .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem; /* Spacing between nav items */
 }
 
-.pricing-preview h2 {
-    font-size: 1.8em;
-    margin-bottom: 40px;
+.page-nav-bar .nav-button {
+  text-decoration: none;
+  color: #0a66c2; /* LinkedIn Blue */
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.pricing-preview .pricing-tiers-container {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 30px;
-    flex-wrap: wrap;
+.page-nav-bar .nav-button:hover {
+  background-color: #0a66c2;
+  color: #fff;
 }
 
-.pricing-preview .pricing-tier {
-    flex: 1;
-    max-width: 350px;
-    min-width: 280px;
-    padding: 25px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    text-align: left;
+.page-nav-bar .nav-button.page-login-cta {
+  background-color: #0a66c2;
+  color: #fff;
+  border: 1px solid #004182; /* Darker border for definition */
 }
 
-.pricing-preview .pricing-tier h3 {
-    font-size: 1.4em;
-    margin-bottom: 15px;
-    color: #0077B5;
+.page-nav-bar .nav-button.page-login-cta:hover {
+  background-color: #004182;
+  border-color: #002c5a;
 }
 
-.pricing-preview .coming-soon {
-    font-size: 0.9em;
-    font-style: italic;
-    color: #777;
-    margin-bottom: 10px;
+/* Ensure smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
 }
 
-.pricing-preview .pricing-tier ul {
-    list-style: disc;
-    margin-left: 20px;
-    padding-left: 0;
+/* Header Styling */
+header {
+  display: flex;
+  justify-content: space-between; /* Adjusted for logo only on left, potential items on right */
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff; /* Or your desired header background */
+  border-bottom: 1px solid #eee; /* Subtle separator */
 }
 
-.pricing-preview .pricing-tier li {
-    margin-bottom: 8px;
-    line-height: 1.5;
-    color: #555;
+.logo img {
+  height: 40px; /* Keep logo size consistent */
+  display: block; /* Remove any extra space below image */
 }
 
+/* Adding media query for page-nav-bar to stack buttons on mobile */
+@media (max-width: 768px) {
+  .page-nav-bar .container {
+    flex-direction: column;
+    gap: 0.75rem; /* Adjust gap for stacked buttons */
+  }
 
-/* Improve Font Awesome icon visibility and layout */
-.step-icon i,
-.feature-icon i {
-    color: #0077B5; /* LinkedIn blue */
-    font-size: 2.5rem;
-    display: inline-block;
-    margin-bottom: 10px;
+  .page-nav-bar .nav-button {
+    width: 80%; /* Make buttons wider on mobile */
+    padding: 0.75rem 1rem;
+  }
 }
