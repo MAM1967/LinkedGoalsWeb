@@ -82,6 +82,8 @@ p {
   flex-wrap: wrap;
   width: 100%;
   gap: 2rem;
+  margin-bottom: 2rem;
+  text-align: left;
 }
 
 .hero-copy {
@@ -271,10 +273,30 @@ p {
     padding: 2rem 1rem;
   }
 
+  .hero {
+    padding: 2rem 1rem; /* Adjust hero padding for mobile */
+  }
+
+  .hero-heading {
+    font-size: 2.25rem; /* Slightly smaller h1 for mobile */
+    margin-bottom: 1rem;
+  }
+
+  .hero-copy h2 {
+    font-size: 1.75rem; /* Smaller h2 for mobile */
+    text-align: center; /* Center hero subheading */
+  }
+
+  .hero-copy p {
+    text-align: center; /* Center hero paragraph */
+    font-size: 1.1rem; /* Adjust paragraph font size for mobile if needed */
+    margin-bottom: 1.5rem;
+  }
+
   .hero-layout,
-  .features-container,
-  .columns-container,
-  .steps-container,
+  .features-container, /* This class seems to be from a removed section, keeping for now if used elsewhere */
+  .columns-container, /* Ensure this doesn't conflict if used by other sections */
+  .steps-container, /* This class seems to be from a removed section */
   .pricing-tiers-container {
     flex-direction: column;
     gap: 2rem;
@@ -292,9 +314,20 @@ p {
     max-width: 100%;
   }
 
+  .hero-visual {
+    order: -1; /* Display image above text on mobile */
+    margin-bottom: 1.5rem; /* Add some space below the image */
+  }
+
   .hero-icons {
     flex-direction: column;
     align-items: center;
+    gap: 1.5rem; /* Adjust gap for stacked icons */
+    width: 100%; /* Ensure icons container takes full width */
+  }
+
+  .hero-icons div p {
+    font-size: 1rem; /* Adjust icon text size for mobile */
   }
 
   .problem-solution-how-it-works .columns-container {
@@ -313,6 +346,38 @@ p {
   .how-it-works-steps {
     flex-direction: column; /* Stack steps vertically on mobile */
     align-items: center;
+  }
+
+  .mobile-cta {
+    display: block; /* Show mobile CTA */
+    padding: 0.85rem 1.5rem; /* Ensure consistent padding with other main CTAs */
+    font-size: 1.1rem; /* Ensure consistent font size */
+    width: auto; /* Allow button to size to content or set a specific width/max-width */
+    min-width: 200px; /* Give it a decent minimum width */
+  }
+
+  /* Adjust hero layout for mobile CTA -- already covered by .hero-copy centering */
+  /* .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  } */
+  /* .hero-copy p {
+    text-align: center; 
+  } */
+  /* .hero-icons {
+    width: 100%; 
+  } */
+
+  /* Adjust pricing tiers for mobile */
+  .pricing-tiers-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pricing-tier {
+    flex: 1 1 100%; /* Full width on mobile */
+    max-width: 100%; /* Ensure it doesn't exceed container */
   }
 }
 
