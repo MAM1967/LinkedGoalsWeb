@@ -16,8 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // "Login with LinkedIn" Button Interactivity
   const loginButtons = document.querySelectorAll(".login-button");
   loginButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      alert("Login with LinkedIn functionality will be implemented soon!");
+    button.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent default action (e.g., form submission if it's a button, or link navigation if it's an <a> before we manually navigate)
+      window.location.href = "https://app.linkedgoals.app/login";
     });
   });
 
