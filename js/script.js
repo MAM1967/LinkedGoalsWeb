@@ -18,6 +18,16 @@ document.addEventListener("DOMContentLoaded", () => {
   loginButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
       event.preventDefault(); // Prevent default action (e.g., form submission if it's a button, or link navigation if it's an <a> before we manually navigate)
+
+      // Track login button click event
+      if (typeof gtag !== "undefined") {
+        gtag("event", "login_button_click", {
+          event_category: "engagement",
+          event_label: "login_with_linkedin",
+          value: 1,
+        });
+      }
+
       window.location.href = "https://app.linkedgoals.app/login";
     });
   });
@@ -29,6 +39,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (watchDemoBtn && demoModal && closeButton) {
     watchDemoBtn.addEventListener("click", () => {
+      // Track demo modal open event
+      if (typeof gtag !== "undefined") {
+        gtag("event", "demo_modal_open", {
+          event_category: "engagement",
+          event_label: "watch_demo",
+          value: 1,
+        });
+      }
+
       demoModal.style.display = "block";
     });
 
@@ -55,11 +74,59 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     */
 
-  // Placeholder for future "Share on LinkedIn" buttons
-  // const shareButtons = document.querySelectorAll('.share-linkedin-btn');
-  // shareButtons.forEach(button => {
-  //     button.addEventListener('click', () => {
-  //         alert('Social sharing functionality will be implemented soon!');
-  //     });
-  // });
+  // Track pricing plan selection
+  const selectPlanButtons = document.querySelectorAll(".select-plan-button");
+  selectPlanButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const planType = button
+        .closest(".pricing-tier")
+        .classList.contains("premium-tier")
+        ? "premium"
+        : "free";
+
+      if (typeof gtag !== "undefined") {
+        gtag("event", "select_plan_click", {
+          event_category: "conversion",
+          event_label: planType,
+          value: planType === "premium" ? 10 : 1,
+        });
+      }
+    });
+  });
+
+  // Track LinkedIn sharing clicks
+  const shareButtons = document.querySelectorAll(".share-plan-link");
+  shareButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const planType = button
+        .closest(".pricing-tier")
+        .classList.contains("premium-tier")
+        ? "premium"
+        : "free";
+
+      if (typeof gtag !== "undefined") {
+        gtag("event", "linkedin_share_click", {
+          event_category: "social",
+          event_label: planType + "_plan_share",
+          value: 1,
+        });
+      }
+    });
+  });
+
+  // Track navigation clicks
+  const navButtons = document.querySelectorAll(".nav-button");
+  navButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const sectionName = button.textContent.toLowerCase().replace(/\s+/g, "_");
+
+      if (typeof gtag !== "undefined") {
+        gtag("event", "navigation_click", {
+          event_category: "navigation",
+          event_label: sectionName,
+          value: 1,
+        });
+      }
+    });
+  });
 });
