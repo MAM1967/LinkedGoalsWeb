@@ -83,33 +83,44 @@
     </div>
 
     <script>
+      // Wait for DOM and Google Analytics to be ready
+      function waitForGA(callback) {
+        if (typeof gtag !== "undefined" && window.dataLayer) {
+          callback();
+        } else {
+          setTimeout(function () {
+            waitForGA(callback);
+          }, 100);
+        }
+      }
+
       // Check for success parameter in URL
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.get("success") === "true") {
         document.querySelector(".contact-form").style.display = "none";
         document.getElementById("success-message").style.display = "block";
 
-        // Track successful form submission
-        if (typeof gtag !== "undefined") {
+        // Track successful form submission with GA ready check
+        waitForGA(function () {
           gtag("event", "contact_form_submission", {
             event_category: "engagement",
             event_label: "contact_form_success",
             value: 5,
           });
-        }
+        });
       }
 
       // Track form submission attempt
       document
         .querySelector(".contact-form")
         .addEventListener("submit", function () {
-          if (typeof gtag !== "undefined") {
+          waitForGA(function () {
             gtag("event", "contact_form_submit", {
               event_category: "engagement",
               event_label: "contact_form_attempt",
               value: 1,
             });
-          }
+          });
         });
     </script>
   </body>

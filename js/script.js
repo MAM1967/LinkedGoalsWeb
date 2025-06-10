@@ -1,5 +1,16 @@
 // This is the beginning of the script.js file
 
+// Wait for Google Analytics to be ready
+function waitForGA(callback) {
+  if (typeof gtag !== "undefined" && window.dataLayer) {
+    callback();
+  } else {
+    setTimeout(function () {
+      waitForGA(callback);
+    }, 100);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // Hamburger Menu Functionality
   const hamburgerButton = document.querySelector(".hamburger-menu");
@@ -20,13 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault(); // Prevent default action (e.g., form submission if it's a button, or link navigation if it's an <a> before we manually navigate)
 
       // Track login button click event
-      if (typeof gtag !== "undefined") {
+      waitForGA(function () {
         gtag("event", "login_button_click", {
           event_category: "engagement",
           event_label: "login_with_linkedin",
           value: 1,
         });
-      }
+      });
 
       window.location.href = "https://app.linkedgoals.app/login";
     });
@@ -40,13 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (watchDemoBtn && demoModal && closeButton) {
     watchDemoBtn.addEventListener("click", () => {
       // Track demo modal open event
-      if (typeof gtag !== "undefined") {
+      waitForGA(function () {
         gtag("event", "demo_modal_open", {
           event_category: "engagement",
           event_label: "watch_demo",
           value: 1,
         });
-      }
+      });
 
       demoModal.style.display = "block";
     });
@@ -84,13 +95,13 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "premium"
         : "free";
 
-      if (typeof gtag !== "undefined") {
+      waitForGA(function () {
         gtag("event", "select_plan_click", {
           event_category: "conversion",
           event_label: planType,
           value: planType === "premium" ? 10 : 1,
         });
-      }
+      });
     });
   });
 
@@ -104,13 +115,13 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "premium"
         : "free";
 
-      if (typeof gtag !== "undefined") {
+      waitForGA(function () {
         gtag("event", "linkedin_share_click", {
           event_category: "social",
           event_label: planType + "_plan_share",
           value: 1,
         });
-      }
+      });
     });
   });
 
@@ -120,13 +131,13 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const sectionName = button.textContent.toLowerCase().replace(/\s+/g, "_");
 
-      if (typeof gtag !== "undefined") {
+      waitForGA(function () {
         gtag("event", "navigation_click", {
           event_category: "navigation",
           event_label: sectionName,
           value: 1,
         });
-      }
+      });
     });
   });
 });
