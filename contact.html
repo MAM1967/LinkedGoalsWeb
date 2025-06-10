@@ -32,7 +32,7 @@
       <h1>Contact Us</h1>
       <form
         class="contact-form"
-        action="https://formsubmit.co/info@linkedgoals.app"
+        action="https://getform.io/f/bejjnxpb"
         method="POST"
       >
         <div class="form-group">
@@ -52,19 +52,12 @@
           <textarea id="message" name="message" required></textarea>
         </div>
 
-        <!-- Hidden fields for FormSubmit.co -->
+        <!-- Hidden field for redirect -->
         <input
           type="hidden"
-          name="_next"
+          name="_redirect"
           value="https://linkedgoals.app/contact.html?success=true"
         />
-        <input
-          type="hidden"
-          name="_subject"
-          value="New Contact Form Submission from LinkedGoals"
-        />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_template" value="table" />
 
         <button type="submit" class="submit-button">Send Message</button>
         <p class="form-note">
