@@ -555,15 +555,36 @@ p {
   background-color: #005d8c; /* Darker LinkedIn Blue on hover */
 }
 
-.select-plan-button.disabled-button,
+.select-plan-button.disabled-button {
+  background-color: #a0a0a0; /* Gray for truly disabled buttons */
+  cursor: default;
+}
+
 .select-plan-button.coming-soon-button {
-  background-color: #a0a0a0; /* Gray for disabled/coming soon state */
-  cursor: default; /* Default cursor as it's not clickable or leads to a notification signup */
-  /* pointer-events: none; /* Optionally make it completely non-interactive */
+  background: linear-gradient(
+    135deg,
+    #0a66c2,
+    #0077b5
+  ); /* Active LinkedIn Blue gradient */
+  color: white;
+  cursor: pointer; /* Show it's clickable */
+  position: relative;
+  overflow: hidden;
+}
+
+.select-plan-button.coming-soon-button::before {
+  content: "🔔";
+  margin-right: 0.5rem;
 }
 
 .select-plan-button.coming-soon-button:hover {
-  background-color: #8c8c8c; /* Slightly darker gray on hover */
+  background: linear-gradient(
+    135deg,
+    #004182,
+    #005d8c
+  ); /* Darker blue on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(10, 102, 194, 0.3);
 }
 
 .premium-tier-header {

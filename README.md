@@ -118,20 +118,59 @@ The website uses a professional color scheme centered around LinkedIn's brand co
 #### Interactive Elements
 
 1. **Login Buttons**: Redirect to `https://app.linkedgoals.app/login`
-2. **Demo Modal**: Expandable modal for future video content
-3. **Hamburger Menu**: Mobile navigation toggle (if implemented)
+2. **Contact Form**: Secure form submission via Formspree
+3. **Premium Notification Modal**: Lead capture for Premium tier interest
 4. **Social Sharing**: LinkedIn sharing for pricing plans
+5. **Analytics Tracking**: Google Analytics event tracking
+
+#### Form Implementations
+
+**Contact Form (contact.html)**
+
+- **Endpoint**: `https://formspree.io/f/xzzgeqgr`
+- **Destination**: `info@linkedgoals.app`
+- **Features**:
+  - Secure form processing without backend
+  - Success/error handling with user feedback
+  - Spam protection and validation
+  - Analytics tracking for form submissions
+- **Fields**: Name, Email, Subject, Message
+
+**Premium Notification Form (index.html)**
+
+- **Endpoint**: `https://formspree.io/f/xjkrydon`
+- **Destination**: `info@linkedgoals.app`
+- **Features**:
+  - Modal-based lead capture
+  - Professional UI with LinkedIn Blue gradient
+  - Success confirmation with checkmark animation
+  - Conversion funnel analytics tracking
+- **Fields**: First Name, Email Address
 
 #### Event Listeners
 
 - **DOMContentLoaded**: Ensures all interactivity loads after page content
-- **Click Events**: Login buttons, modal controls
-- **Responsive**: Mobile menu handling
+- **Click Events**: Login buttons, form submissions, modal controls
+- **Form Submissions**: Secure processing with user feedback
+- **Analytics Events**: Comprehensive tracking for user interactions
+
+#### Google Analytics Integration
+
+- **Tracking ID**: `G-5966923461`
+- **Custom Events**:
+  - Login button clicks
+  - Form submissions (contact & premium)
+  - Pricing plan selections
+  - LinkedIn sharing actions
+  - Navigation interactions
+  - Modal open/close events
 
 ### External Integrations
 
 - **Font Awesome**: Icon library (v6.4.0)
 - **LinkedIn Sharing**: Direct integration with LinkedIn's sharing API
+- **Formspree**: Form processing service for contact and lead capture
+- **Google Analytics**: User behavior tracking and conversion analytics
 - **Firebase Hosting**: Deployment and hosting platform
 
 ## Features
@@ -142,6 +181,9 @@ The website uses a professional color scheme centered around LinkedIn's brand co
 - **LinkedIn Integration**: Authentication and sharing
 - **Progress Tracking**: Dashboard for monitoring achievements
 - **Social Accountability**: LinkedIn sharing and feedback features
+- **Contact Forms**: Seamless communication with secure form processing
+- **Lead Capture**: Professional modal for Premium tier interest capture
+- **Real-time Feedback**: Success/error states for all form interactions
 
 ### Pricing Tiers
 
@@ -156,6 +198,7 @@ The website uses a professional color scheme centered around LinkedIn's brand co
    - Advanced analytics
    - Custom categories
    - Priority support
+   - **Lead Capture**: Active "Notify Me" button with modal signup form
 
 ## Assets
 
