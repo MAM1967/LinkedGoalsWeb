@@ -262,5 +262,98 @@
         <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/your_video_id" frameborder="0" allowfullscreen></iframe> -->
       </div>
     </div>
+
+    <!-- Premium Notification Modal -->
+    <div id="premium-notify-modal" class="modal" style="display: none">
+      <div class="modal-content premium-modal">
+        <span class="close-button" id="premium-close">&times;</span>
+        <div class="modal-header">
+          <i class="fas fa-star premium-star"></i>
+          <h2>Get Notified About Premium</h2>
+          <p>
+            Be the first to know when LinkedGoals Premium launches with advanced
+            features!
+          </p>
+        </div>
+
+        <form
+          id="premium-notify-form"
+          class="premium-notify-form"
+          action="https://formspree.io/f/xzzgeqgr"
+          method="POST"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <label for="notify-name">First Name</label>
+              <input
+                type="text"
+                id="notify-name"
+                name="first_name"
+                required
+                placeholder="Your first name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="notify-email">Email Address</label>
+              <input
+                type="email"
+                id="notify-email"
+                name="_replyto"
+                required
+                placeholder="your@email.com"
+              />
+            </div>
+          </div>
+
+          <!-- Hidden Formspree fields -->
+          <input
+            type="hidden"
+            name="_subject"
+            value="Premium Launch Notification Request - LinkedGoals"
+          />
+          <input type="hidden" name="form_type" value="premium_notification" />
+          <input
+            type="hidden"
+            name="_next"
+            value="https://linkedgoals.app/?premium_notify=success"
+          />
+          <input type="text" name="_gotcha" style="display: none" />
+
+          <div class="premium-features">
+            <h4>Premium Features You'll Get:</h4>
+            <ul>
+              <li><i class="fas fa-infinity"></i> Unlimited goals</li>
+              <li>
+                <i class="fas fa-chart-bar"></i> Advanced analytics & insights
+              </li>
+              <li><i class="fas fa-tags"></i> Custom goal categories</li>
+              <li><i class="fas fa-headset"></i> Priority support</li>
+            </ul>
+          </div>
+
+          <button type="submit" class="premium-notify-button">
+            <i class="fas fa-bell"></i> Notify Me When Premium Launches
+          </button>
+
+          <p class="privacy-note">
+            We'll only email you about Premium launch. No spam, unsubscribe
+            anytime.
+          </p>
+        </form>
+
+        <!-- Success message -->
+        <div id="premium-success" class="premium-success" style="display: none">
+          <i class="fas fa-check-circle success-icon"></i>
+          <h3>You're on the list! 🎉</h3>
+          <p>
+            We'll email you as soon as LinkedGoals Premium is ready. Thanks for
+            your interest!
+          </p>
+          <button class="close-success-btn" onclick="closePremiumModal()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

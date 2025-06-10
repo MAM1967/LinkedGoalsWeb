@@ -140,4 +140,138 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
+  // Premium Notification Modal Functionality
+  const premiumNotifyButton = document.querySelector(
+    '.coming-soon-button[href="#notify-premium"]'
+  );
+  const premiumModal = document.getElementById("premium-notify-modal");
+  const premiumClose = document.getElementById("premium-close");
+  const premiumForm = document.getElementById("premium-notify-form");
+  const premiumSuccess = document.getElementById("premium-success");
+
+  // Open premium modal
+  if (premiumNotifyButton && premiumModal) {
+    premiumNotifyButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      premiumModal.style.display = "block";
+
+      // Track premium interest
+      waitForGA(function () {
+        gtag("event", "premium_notify_open", {
+          event_category: "conversion",
+          event_label: "premium_interest",
+          value: 10,
+        });
+      });
+    });
+  }
+
+  // Close premium modal
+  if (premiumClose) {
+    premiumClose.addEventListener("click", function () {
+      premiumModal.style.display = "none";
+    });
+  }
+
+  // Close modal when clicking outside
+  window.addEventListener("click", function (e) {
+    if (e.target === premiumModal) {
+      premiumModal.style.display = "none";
+    }
+  });
+
+  // Handle premium form submission
+  if (premiumForm) {
+    premiumForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const submitBtn = premiumForm.querySelector(".premium-notify-button");
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML =
+        '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+      submitBtn.disabled = true;
+
+      // Track form submission attempt
+      waitForGA(function () {
+        gtag("event", "premium_notify_submit", {
+          event_category: "conversion",
+          event_label: "premium_signup_attempt",
+          value: 15,
+        });
+      });
+
+      // Submit to Formspree
+      const formData = new FormData(premiumForm);
+
+      fetch(premiumForm.action, {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => {
+          if (response.ok) {
+            // Hide form, show success
+            premiumForm.style.display = "none";
+            premiumSuccess.style.display = "block";
+
+            // Track successful submission
+            waitForGA(function () {
+              gtag("event", "premium_notify_success", {
+                event_category: "conversion",
+                event_label: "premium_signup_success",
+                value: 25,
+              });
+            });
+          } else {
+            throw new Error("Form submission failed");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert(
+            "Sorry, there was an error. Please try again or email us at info@linkedgoals.app"
+          );
+
+          // Reset button
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        });
+    });
+  }
+
+  // Check for premium notification success
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("premium_notify") === "success") {
+    if (premiumModal && premiumForm && premiumSuccess) {
+      premiumModal.style.display = "block";
+      premiumForm.style.display = "none";
+      premiumSuccess.style.display = "block";
+
+      // Track success page view
+      waitForGA(function () {
+        gtag("event", "premium_notify_success_view", {
+          event_category: "conversion",
+          event_label: "premium_signup_success_page",
+          value: 25,
+        });
+      });
+    }
+  }
 });
+
+// Global function to close premium modal (for success button)
+function closePremiumModal() {
+  const premiumModal = document.getElementById("premium-notify-modal");
+  if (premiumModal) {
+    premiumModal.style.display = "none";
+
+    // Reset form for next use
+    const premiumForm = document.getElementById("premium-notify-form");
+    const premiumSuccess = document.getElementById("premium-success");
+    if (premiumForm && premiumSuccess) {
+      premiumForm.style.display = "block";
+      premiumSuccess.style.display = "none";
+      premiumForm.reset();
+    }
+  }
+}
