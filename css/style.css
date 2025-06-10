@@ -856,3 +856,26 @@ body.static-page-body {
   text-align: center;
   margin-top: 1.5rem;
 }
+
+/* Success message styling */
+.success-message {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.success-message h2 {
+  color: #155724;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.success-message p {
+  color: #155724;
+  margin: 0;
+  font-size: 1.1rem;
+}

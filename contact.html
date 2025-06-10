@@ -32,9 +32,8 @@
       <h1>Contact Us</h1>
       <form
         class="contact-form"
-        action="mailto:info@linkedgoals.app"
+        action="https://formsubmit.co/info@linkedgoals.app"
         method="POST"
-        enctype="text/plain"
       >
         <div class="form-group">
           <label for="name">Full Name</label>
@@ -52,12 +51,67 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" required></textarea>
         </div>
+
+        <!-- Hidden fields for FormSubmit.co -->
+        <input
+          type="hidden"
+          name="_next"
+          value="https://linkedgoals.app/contact.html?success=true"
+        />
+        <input
+          type="hidden"
+          name="_subject"
+          value="New Contact Form Submission from LinkedGoals"
+        />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+
         <button type="submit" class="submit-button">Send Message</button>
         <p class="form-note">
-          Please note: This will open your default email application to send the
-          message.
+          Your message will be securely sent to our team. We'll respond within
+          24 hours.
         </p>
       </form>
+
+      <!-- Success message (shown when form is submitted) -->
+      <div id="success-message" class="success-message" style="display: none">
+        <h2>✅ Message Sent Successfully!</h2>
+        <p>
+          Thank you for contacting us. We've received your message and will
+          respond within 24 hours.
+        </p>
+      </div>
     </div>
+
+    <script>
+      // Check for success parameter in URL
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get("success") === "true") {
+        document.querySelector(".contact-form").style.display = "none";
+        document.getElementById("success-message").style.display = "block";
+
+        // Track successful form submission
+        if (typeof gtag !== "undefined") {
+          gtag("event", "contact_form_submission", {
+            event_category: "engagement",
+            event_label: "contact_form_success",
+            value: 5,
+          });
+        }
+      }
+
+      // Track form submission attempt
+      document
+        .querySelector(".contact-form")
+        .addEventListener("submit", function () {
+          if (typeof gtag !== "undefined") {
+            gtag("event", "contact_form_submit", {
+              event_category: "engagement",
+              event_label: "contact_form_attempt",
+              value: 1,
+            });
+          }
+        });
+    </script>
   </body>
 </html>
